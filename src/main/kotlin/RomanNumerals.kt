@@ -5,7 +5,9 @@ fun transform(arabic: Int): String {
         "VV" to "X",
         "VIV" to "IX",
         "XXXXX" to "L",
-        "XXXX" to "XL"
+        "XXXX" to "XL",
+        "LL" to "C",
+        "LXL" to "XC"
     )
 
     return transform("I".repeat(arabic), transformations)
