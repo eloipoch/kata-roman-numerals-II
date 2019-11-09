@@ -10,7 +10,10 @@ class RomanNumeralsTests : StringSpec({
             row(2, "II"),
             row(3, "III"),
             row(4, "IV"),
-            row(5, "V")
+            row(5, "V"),
+            row(6, "VI"),
+            row(7, "VII"),
+            row(8, "VIII")
         ) { arabic, roman ->
             transform(arabic) shouldBe roman
         }
