@@ -1,14 +1,16 @@
+import io.kotlintest.data.forall
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
+import io.kotlintest.tables.row
 
 class RomanNumeralsTests : StringSpec({
-    "it should transform 1 into I" {
-        transform(1) shouldBe "I"
-    }
-    "it should transform 2 into II" {
-        transform(2) shouldBe "II"
-    }
-    "it should transform 3 into III" {
-        transform(3) shouldBe "III"
+    "it should transform an arabic number into a roman number" {
+        forall(
+            row(1, "I"),
+            row(2, "II"),
+            row(3, "III")
+        ) { arabic, roman ->
+            transform(arabic) shouldBe roman
+        }
     }
 })
