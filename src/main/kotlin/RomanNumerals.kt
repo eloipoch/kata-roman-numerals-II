@@ -1,3 +1,7 @@
 fun transform(arabic: Int): String {
-    return if (arabic == 1) "I" else "II"
+    return when (arabic) {
+        1 -> "I"
+        2 -> "II"
+        else -> "III"
+    }
 }

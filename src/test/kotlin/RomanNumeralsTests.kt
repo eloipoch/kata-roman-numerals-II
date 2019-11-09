@@ -8,4 +8,7 @@ class RomanNumeralsTests : StringSpec({
     "it should transform 2 into II" {
         transform(2) shouldBe "II"
     }
+    "it should transform 3 into III" {
+        transform(3) shouldBe "III"
+    }
 })
