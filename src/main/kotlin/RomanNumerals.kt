@@ -1,9 +1,17 @@
 fun transform(arabic: Int): String {
-    return "I".repeat(arabic)
-        .replace("IIIII", "V")
-        .replace("IIII", "IV")
-        .replace("VV", "X")
-        .replace("VIV", "IX")
-        .replace("XXXXX", "L")
-        .replace("XXXX", "XL")
+    val transformations = listOf(
+        "IIIII" to "V",
+        "IIII" to "IV",
+        "VV" to "X",
+        "VIV" to "IX",
+        "XXXXX" to "L",
+        "XXXX" to "XL"
+    )
+
+    return transform("I".repeat(arabic), transformations)
 }
+
+private fun transform(initial: String, transformations: List<Pair<String, String>>) =
+    transformations.fold(initial) { current, (value, into) ->
+        current.replace(value, into)
+    }
