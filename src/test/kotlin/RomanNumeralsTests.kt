@@ -15,7 +15,19 @@ class RomanNumeralsTests : StringSpec({
             row(7, "VII"),
             row(8, "VIII"),
             row(9, "IX"),
-            row(10, "X")
+            row(10, "X"),
+            row(11, "XI"),
+            row(12, "XII"),
+            row(13, "XIII"),
+            row(14, "XIV"),
+            row(15, "XV"),
+            row(16, "XVI"),
+            row(17, "XVII"),
+            row(18, "XVIII"),
+            row(19, "XIX"),
+            row(20, "XX"),
+            row(30, "XXX"),
+            row(39, "XXXIX")
         ) { arabic, roman ->
             transform(arabic) shouldBe roman
         }
