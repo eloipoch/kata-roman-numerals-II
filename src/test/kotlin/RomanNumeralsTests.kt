@@ -8,7 +8,8 @@ class RomanNumeralsTests : StringSpec({
         forall(
             row(1, "I"),
             row(2, "II"),
-            row(3, "III")
+            row(3, "III"),
+            row(4, "IV")
         ) { arabic, roman ->
             transform(arabic) shouldBe roman
         }
