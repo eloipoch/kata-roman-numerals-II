@@ -27,7 +27,8 @@ class RomanNumeralsTests : StringSpec({
             row(19, "XIX"),
             row(20, "XX"),
             row(30, "XXX"),
-            row(39, "XXXIX")
+            row(39, "XXXIX"),
+            row(40, "XL")
         ) { arabic, roman ->
             transform(arabic) shouldBe roman
         }
