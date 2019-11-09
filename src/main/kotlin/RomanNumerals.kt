@@ -4,5 +4,6 @@ fun transform(arabic: Int): String {
         .replace("IIII", "IV")
         .replace("VV", "X")
         .replace("VIV", "IX")
+        .replace("XXXXX", "L")
         .replace("XXXX", "XL")
 }
