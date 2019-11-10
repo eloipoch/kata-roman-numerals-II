@@ -8,7 +8,9 @@ fun transform(arabic: Int): String {
         40 to "XL",
         50 to "L",
         90 to "XC",
-        100 to "C"
+        100 to "C",
+        400 to "CD",
+        500 to "D"
     )
 
     return transform(arabic, transformations).second

@@ -36,7 +36,9 @@ class RomanNumeralsTests : StringSpec({
             row(90, "XC"),
             row(100, "C"),
             row(200, "CC"),
-            row(300, "CCC")
+            row(300, "CCC"),
+            row(400, "CD"),
+            row(500, "D")
         ) { arabic, roman ->
             transform(arabic) shouldBe roman
         }
