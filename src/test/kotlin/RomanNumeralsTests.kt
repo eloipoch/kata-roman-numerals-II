@@ -40,7 +40,11 @@ class RomanNumeralsTests : StringSpec({
             row(400, "CD"),
             row(500, "D"),
             row(900, "CM"),
-            row(1000, "M")
+            row(1000, "M"),
+
+            row(846, "DCCCXLVI"),
+            row(1999, "MCMXCIX"),
+            row(2008, "MMVIII")
         ) { arabic, roman ->
             transform(arabic) shouldBe roman
         }
