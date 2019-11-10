@@ -5,9 +5,7 @@ data class Transformation(val arabic: Arabic, val roman: Roman)
 
 infix fun <Int, String> Int.to(that: String) = Transformation(this as Arabic, that as Roman)
 
-typealias Transformations = List<Transformation>
-
-val transformations: Transformations = listOf(
+val transformations = listOf(
     1 to "I",
     4 to "IV",
     5 to "V",
