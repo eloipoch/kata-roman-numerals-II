@@ -1,19 +1,26 @@
 fun transform(arabic: Int): String {
     val transformations = listOf(
-        "IIIII" to "V",
-        "IIII" to "IV",
-        "VV" to "X",
-        "VIV" to "IX",
-        "XXXXX" to "L",
-        "XXXX" to "XL",
-        "LL" to "C",
-        "LXL" to "XC"
+        1 to "I",
+        4 to "IV",
+        5 to "V",
+        9 to "IX",
+        10 to "X",
+        40 to "XL",
+        50 to "L",
+        90 to "XC",
+        100 to "C"
     )
 
-    return transform("I".repeat(arabic), transformations)
+    return transform(arabic, transformations).second
 }
 
-private fun transform(initial: String, transformations: List<Pair<String, String>>) =
-    transformations.fold(initial) { current, (value, into) ->
-        current.replace(value, into)
+private fun transform(arabic: Int, transformations: List<Pair<Int, String>>) =
+    transformations.foldRight(arabic to "") { (value, into), (arabic, roman) ->
+        var result = arabic to roman
+
+        while (result.first >= value) {
+            result = result.first - value to result.second + into
+        }
+
+        result
     }
