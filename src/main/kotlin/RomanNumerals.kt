@@ -1,6 +1,10 @@
 typealias Arabic = Int
 typealias Roman = String
-typealias Transformation = Pair<Arabic, Roman>
+
+data class Transformation(val arabic: Arabic, val roman: Roman)
+
+infix fun <Int, String> Int.to(that: String) = Transformation(this as Arabic, that as Roman)
+
 typealias Transformations = List<Transformation>
 
 val transformations: Transformations = listOf(
@@ -19,12 +23,13 @@ val transformations: Transformations = listOf(
     1000 to "M"
 )
 
-fun transform(number: Arabic) = transformations.foldRight(number to "") { (value, into), (arabic, roman) ->
-    var result = arabic to roman
+fun transform(number: Arabic) = transformations.foldRight(number to "", transform()).roman
 
-    while (result.first >= value) {
-        result = result.first - value to result.second + into
-    }
+private fun transform(): (Transformation, Transformation) -> Transformation =
+    { transformation, result -> transform(result, transformation) }
 
-    result
-}.second
+private tailrec fun transform(result: Transformation, transformation: Transformation): Transformation =
+    if (result.arabic < transformation.arabic) result else transform(
+        result.arabic - transformation.arabic to result.roman + transformation.roman,
+        transformation
+    )
