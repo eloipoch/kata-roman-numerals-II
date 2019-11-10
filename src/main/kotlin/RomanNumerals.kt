@@ -15,7 +15,7 @@ fun transform(arabic: Int): String {
         1000 to "M"
     )
 
-    return transform(arabic, transformations).second
+    return transform(arabic, transformations)
 }
 
 private fun transform(arabic: Int, transformations: List<Pair<Int, String>>) =
@@ -27,4 +27,4 @@ private fun transform(arabic: Int, transformations: List<Pair<Int, String>>) =
         }
 
         result
-    }
+    }.second
